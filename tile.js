@@ -1,19 +1,19 @@
-class Tile {
+class Tile
+{
 
-  constructor(x, y, tileWidth, tileHeight)
-  {
-    this.x = x;
-    this.y = y;
-    this.tileWidth = tileWidth;
-    this.tileHeight = tileHeight;
-    this.pos = createVector(x, y);
-  }
+    constructor(x, y, tileSize)
+    {
+        this.x = x;
+        this.y = y;
+        this.tileSize = tileSize;
+        this.pos = createVector(x, y);
+    }
 
-  show() {
-    noFill();
-    console.log("show");
-    stroke(0);
-    rect(this.pos.x, this.pos.y, this.tileWidth, this.tileHeight);
-  }
+    show()
+    {
+        noFill();
+        stroke(0);
+        rect(this.pos.x, this.pos.y, this.tileSize, this.tileSize);
+    }
 
 }

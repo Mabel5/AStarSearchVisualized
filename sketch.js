@@ -1,15 +1,16 @@
-let x = 800;
-let y = 800;
-let tileWidth = 40;
-var grid;
+const CANVAS_SIZE = 800;
+const TILE_SIZE = 40;
+const BACKGROUND_COLOUR = 200;
+
+var tileMap;
 
 function setup() {
-	createCanvas(x, y);
-	grid = new Grid(x, y, tileWidth, tileWidth);
-	grid.populateGrid();
+	createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+	tileMap = new TileMap(CANVAS_SIZE, TILE_SIZE);
+	tileMap.populateTileMap();
 }
 
 function draw() {
-	background(255, 255, 0);
-	grid.update();
+	background(BACKGROUND_COLOUR);
+	tileMap.updateTiles();
 }
