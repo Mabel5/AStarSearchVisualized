@@ -8,7 +8,7 @@ class TileMap
         this.tiles = [];
     }
 
-    populateTileMap()
+    populate()
     {
         for(var x = 0; x < this.canvasSize; x += this.tileSize)
         {
@@ -21,7 +21,7 @@ class TileMap
         }
     }
 
-    updateTiles()
+    update()
     {
         var rowLength = this.tiles.length; // the number of rows
         var columnLength = this.tiles[0].length; // the number of columns
@@ -33,6 +33,29 @@ class TileMap
                 this.tiles[rows][columns].show();
             }
         }
+    }
+
+    getTileFromCoord(x, y)
+    {
+        return this.tiles[x][y];
+    }
+
+    isEdgeCase(node)
+    {
+        var x = node.getX();
+        var y = node.getY();
+        var rowSize = this.tiles.length;
+        var colSize = this.tiles[0].length;
+
+        if (x === 0 && y === 0) { return "LEFT_UP"; }
+        if (x === rowSize && y === 0) { return "RIGHT_UP" }
+        if (x === 0 && y === colSize) { return "LEFT_DOWN" }
+        if (x === rowSize && y === colSize) { return "RIGHT_DOWN"}
+        if (x === 0) { return "LEFT"; }
+        if (y === 0) { return "UP"; }
+        if (x === rowSize) { return "RIGHT"; }
+        if (y === colSize) { return "DOWN"}
+        return null;
     }
 
 }
